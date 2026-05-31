@@ -39,8 +39,10 @@ class EmployeePage:
         self.driver.find_element(*self.LAST_NAME_INPUT).send_keys(name)
 
     def submit(self):
-        self.driver.find_element(*self.SUBMIT_BUTTON).click()
+        import time
         time.sleep(2)
+        self.driver.find_element(*self.SUBMIT_BUTTON).click()
+        time.sleep(4)
 
     def get_required_errors(self) -> list:
         time.sleep(1)

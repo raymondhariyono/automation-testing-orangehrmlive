@@ -13,7 +13,7 @@ class DashboardPage:
     USER_DROPDOWN   = (By.XPATH, "//span[@class='oxd-userdropdown-tab']")
     LOGOUT_BUTTON   = (By.XPATH, "//a[text()='Logout']")
     SEARCH_BAR      = (By.XPATH, "//input[@placeholder='Search']")
-    SEARCH_RESULTS  = (By.XPATH, "//div[contains(@class,'oxd-main-menu-search')]//li")
+    SEARCH_RESULTS  = (By.XPATH, "//a[contains(@class, 'oxd-main-menu-item')]")
 
     def __init__(self, driver):
         self.driver = driver
@@ -34,7 +34,7 @@ class DashboardPage:
         search = self.wait.until(EC.presence_of_element_located(self.SEARCH_BAR))
         search.click()
         search.send_keys(keyword)
-        time.sleep(2)
+        time.sleep(4)
 
     def get_search_suggestions(self) -> list:
         return self.driver.find_elements(*self.SEARCH_RESULTS)

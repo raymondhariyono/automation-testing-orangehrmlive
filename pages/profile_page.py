@@ -8,6 +8,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from config.settings import BASE_URL, EXPLICIT_WAIT
+from selenium.webdriver.common.keys import Keys
 
 
 class ProfilePage:
@@ -28,14 +29,24 @@ class ProfilePage:
         self.wait.until(EC.presence_of_element_located(self.HEADER_H6))
 
     def clear_first_name(self):
+        import time
         field = self.wait.until(EC.presence_of_element_located(self.FIRST_NAME_INPUT))
-        field.clear()
-
-    def save(self):
-        self.driver.find_element(*self.SUBMIT_BUTTON).click()
+        field.click()
         time.sleep(1)
 
+        field.send_keys(Keys.CONTROL + "a")
+        time.sleep(1)
+        field.send_keys(Keys.BACKSPACE)
+        time.sleep(1)
+
+    def save(self):
+        time.sleep(3)
+        self.driver.find_element(*self.SUBMIT_BUTTON).click()
+        time.sleep(4)
+
     def get_required_errors(self) -> list:
+        import time
+        time.sleep(2)
         return self.driver.find_elements(*self.REQUIRED_SPANS)
 
     def get_header_text(self) -> str:

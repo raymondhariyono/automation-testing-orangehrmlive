@@ -26,7 +26,7 @@ class TestProfile(BaseTest):
         self._do_login()
         pp = ProfilePage(self.driver)
         pp.open_my_info()
-        self.assertIn("viewMyDetails", self.driver.current_url)
+        self.assertIn("viewPersonalDetails", self.driver.current_url)
 
     # ─────────────────────────────────────────────
     # TC_PRF_02_NEG: Simpan profil dengan First Name kosong → validasi muncul
@@ -58,6 +58,6 @@ class TestProfile(BaseTest):
     def test_TC_PRF_04_NEG_access_my_info_without_login(self):
         """Memastikan akses halaman My Info tanpa login diredirect ke halaman login."""
         pp = ProfilePage(self.driver)
-        pp.open_my_info()
+        self.driver.get(pp.MY_INFO_URL) 
         self.wait.until(EC.url_contains("auth/login"))
         self.assertIn("auth/login", self.driver.current_url)

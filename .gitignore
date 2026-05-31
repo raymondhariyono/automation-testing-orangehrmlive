@@ -1,0 +1,25 @@
+# 1. Virtual Environment (Paling Penting!)
+venv/
+env/
+ENV/
+
+# 2. Python Cache (File generate otomatis dari sistem Python)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 3. Pytest Cache & Reports
+.pytest_cache/
+*.log
+
+# (Opsional) Jika tidak ingin hasil report HTML di-push, buka pagarnya:
+# report.html
+# assets/
+
+# 4. Folder IDE/Editor (Pengaturan lokal VS Code kamu)
+.vscode/
+.idea/
+
+# 5. OS Generate Files
+.DS_Store
+Thumbs.db

@@ -43,9 +43,10 @@ class LeavePage:
         time.sleep(2)
 
     def apply_leave_without_leave_type(self):
-        """Submit form tanpa memilih Leave Type."""
-        self.driver.find_element(*self.SUBMIT_BUTTON).click()
-        time.sleep(1)
+        import time
+        btn = self.driver.find_element(*self.SUBMIT_BUTTON)
+        self.driver.execute_script("arguments[0].click();", btn)
+        time.sleep(2)
 
     def get_required_errors(self) -> list:
         return self.driver.find_elements(*self.REQUIRED_SPANS)

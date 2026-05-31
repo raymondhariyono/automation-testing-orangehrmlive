@@ -34,8 +34,11 @@ class AdminPage:
         self.wait.until(EC.presence_of_element_located(self.SUBMIT_BUTTON))
 
     def open_job_title_list(self):
+        import time
+        from selenium.webdriver.support import expected_conditions as EC
         self.driver.get(self.JOB_TITLE_URL)
-        self.wait.until(EC.presence_of_element_located(self.HEADER_H5))
+        self.wait.until(EC.url_contains("viewJobTitleList"))
+        time.sleep(2) # Tambahan jeda agar aman
 
     def submit_empty_form(self):
         self.driver.find_element(*self.SUBMIT_BUTTON).click()

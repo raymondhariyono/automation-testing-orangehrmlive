@@ -11,8 +11,8 @@ VALID_USER  = "Admin"
 VALID_PASS  = "admin123"
 
 # Timeout (detik)
-IMPLICIT_WAIT = 10
-EXPLICIT_WAIT = 15
+IMPLICIT_WAIT = 20
+EXPLICIT_WAIT = 25
 
 # Mode headless (True = tanpa tampilan browser)
-HEADLESS = True
+HEADLESS = False
